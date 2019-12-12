@@ -1,0 +1,50 @@
+Compiled from "Frames.java"
+public class com.alice.jvm.frames.Frames {
+  public com.alice.jvm.frames.Frames();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  public int add(int, int);
+    Code:
+       0: iload_1
+       1: iload_2
+       2: iadd
+       3: istore_3
+       4: iload_3
+       5: ireturn
+
+  public int sub(int, int);
+    Code:
+       0: iload_1
+       1: iload_2
+       2: isub
+       3: ireturn
+
+  public long subLong(long, long);
+    Code:
+       0: lload_1
+       1: lload_3
+       2: lsub
+       3: lreturn
+
+  public void all();
+    Code:
+       0: aload_0
+       1: iconst_1
+       2: iconst_2
+       3: invokevirtual #2                  // Method add:(II)I
+       6: pop
+       7: aload_0
+       8: iconst_2
+       9: iconst_1
+      10: invokevirtual #3                  // Method sub:(II)I
+      13: pop
+      14: aload_0
+      15: ldc2_w        #4                  // long 100l
+      18: ldc2_w        #6                  // long 200l
+      21: invokevirtual #8                  // Method subLong:(JJ)J
+      24: pop2
+      25: return
+}

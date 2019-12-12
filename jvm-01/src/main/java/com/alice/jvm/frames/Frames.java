@@ -17,4 +17,11 @@ public class Frames {
     public long subLong(long v1, long v2) {
         return v1 - v2;
     }
+
+
+    public void all() {
+        add(1, 2);
+        sub(2, 1);
+        subLong(100L, 200L);
+    }
 }
