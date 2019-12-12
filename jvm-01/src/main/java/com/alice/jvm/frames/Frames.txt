@@ -1,0 +1,25 @@
+Compiled from "Frames.java"
+public class com.alice.jvm.frames.Frames {
+  # 构造方法
+  public com.alice.jvm.frames.Frames();
+    Code:
+       0: aload_0							// 将第0个引用类型本地变量推送至栈顶
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V 调用父类的构造方法
+       4: return							// 
+  # add方法
+  public int add(int_1, int_2);
+    Code:
+       0: iload_1  //将第二个int型本地变量推送至栈顶 int v1
+       1: iload_2  //将第三个int型本地变量推送至栈顶 int v2
+       2: iadd	   //将栈顶两int型数值相加并将结果压入栈顶 v1 + v2
+       3: istore_3 //将栈顶int型数值存入第四个本地变量 int v3
+       4: iload_3  //将第四个int型本地变量推送至栈顶
+       5: ireturn  //从当前方法返回int
+}
+
+this
+v1
+v2 
+v3
+
+v3
