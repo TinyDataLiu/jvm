@@ -1,0 +1,17 @@
+Compiled from "FramesSimple.java"
+public class com.alice.jvm.frames.FramesSimple {
+  public com.alice.jvm.frames.FramesSimple();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  public int add(int, int);
+    Code:
+       0: iload_1
+       1: iload_2
+       2: iadd
+       3: istore_3
+       4: iload_3
+       5: ireturn
+}
