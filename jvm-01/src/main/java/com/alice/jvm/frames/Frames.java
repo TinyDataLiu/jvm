@@ -20,6 +20,7 @@ public class Frames {
 
 
     public void all() {
+        add(5, 2);
         add(1, 2);
         sub(2, 1);
         subLong(100L, 200L);

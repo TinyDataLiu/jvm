@@ -31,20 +31,25 @@ public class com.alice.jvm.frames.Frames {
 
   public void all();
     Code:
-       0: aload_0
-       1: iconst_1
-       2: iconst_2
-       3: invokevirtual #2                  // Method add:(II)I
-       6: pop
+       0: aload_0  # 从局部变量0中装载引用类型值入栈。
+       1: iconst_5 # 5(int)值入栈。
+       2: iconst_2 # 2(int)值入栈。
+       3: invokevirtual #2  方法调用                // Method add:(II)I
+       6: pop      # 从栈顶弹出一个字长的数据。
        7: aload_0
-       8: iconst_2
-       9: iconst_1
-      10: invokevirtual #3                  // Method sub:(II)I
+       8: iconst_1
+       9: iconst_2
+      10: invokevirtual #2                  // Method add:(II)I
       13: pop
       14: aload_0
-      15: ldc2_w        #4                  // long 100l
-      18: ldc2_w        #6                  // long 200l
-      21: invokevirtual #8                  // Method subLong:(JJ)J
-      24: pop2
-      25: return
+      15: iconst_2
+      16: iconst_1
+      17: invokevirtual #3                  // Method sub:(II)I
+      20: pop
+      21: aload_0
+      22: ldc2_w        #4                  // long 100l
+      25: ldc2_w        #6                  // long 200l
+      28: invokevirtual #8                  // Method subLong:(JJ)J
+      31: pop2
+      32: return
 }
