@@ -1,6 +1,7 @@
 package com.alice.jvm;
 
 import com.alice.jvm.bean.Emp;
+import com.alice.jvm.metaspace.MetaspaceUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -20,9 +21,11 @@ public class Jvm02Application {
         log.info("server start");
     }
 
+    /**
+     * OOM heap
+     */
     @Controller
     class Heap {
-
         private List<Emp> list = new ArrayList<>();
 
         @RequestMapping("heap")
@@ -33,4 +36,20 @@ public class Jvm02Application {
             }
         }
     }
+
+    /**
+     * OOM non-heap
+     */
+    @Controller
+    class NonHeap {
+        List<Class<?>> list = new ArrayList<Class<?>>();
+
+        @RequestMapping("nonHeap")
+        public void nonHeap() {
+            while (true) {
+                list.addAll(MetaspaceUtil.createClasses());
+            }
+        }
+    }
+
 }
