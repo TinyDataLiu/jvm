@@ -32,7 +32,10 @@ public class Jvm02Application {
         public void heap() {
             int i = 0;
             while (true) {
-                list.add(Emp.builder().id(++i).name(UUID.randomUUID().toString()).build());
+                Emp emp = Emp.builder().id(++i).name(UUID.randomUUID().toString()).build();
+                list.add(emp);
+                if (i < 10)
+                    log.info(emp.toString());
             }
         }
     }
