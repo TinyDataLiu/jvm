@@ -24,7 +24,7 @@ public class CyclicBarrierDemo {
         AtomicBoolean notFinished = new AtomicBoolean(true);
         CyclicBarrier cyclicBarrier = new CyclicBarrier(5, () -> {
             // 这里什么也没做，只是将标记下子任务已经全部完成，通知主任务可以不用等待了，继续运行即可
-            notFinished.set(Boolean.FALSE);
+            notFinished.compareAndSet(true, false);
             log.info("子任务已经全部完成");
         });
         long l = System.currentTimeMillis();
@@ -33,6 +33,7 @@ public class CyclicBarrierDemo {
         }
         log.info("------------------------------------");
         while (notFinished.get()) {
+
         }
         log.info("开始主任务{}", integer);
     }
