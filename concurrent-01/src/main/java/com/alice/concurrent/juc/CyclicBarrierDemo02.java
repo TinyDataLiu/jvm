@@ -23,7 +23,7 @@ public class CyclicBarrierDemo02 {
     public static void main(String[] args) throws InterruptedException {
         AtomicBoolean notFinished = new AtomicBoolean(true);
         CyclicBarrier cyclicBarrier = new CyclicBarrier(5);
-        log.info("getNumberWaiting={},getParties={}", cyclicBarrier.getNumberWaiting(), cyclicBarrier.getParties());
+//        log.info("getNumberWaiting={},getParties={}", cyclicBarrier.getNumberWaiting(), cyclicBarrier.getParties());
         long l = System.currentTimeMillis();
         for (int i = 0; i < 5; i++) {
             new SubThread(i, cyclicBarrier).start();
@@ -31,7 +31,7 @@ public class CyclicBarrierDemo02 {
 
 //        TimeUnit.SECONDS.sleep(6);
 
-        log.info("getNumberWaiting={},getParties={}", cyclicBarrier.getNumberWaiting(), cyclicBarrier.getParties());
+//        log.info("getNumberWaiting={},getParties={}", cyclicBarrier.getNumberWaiting(), cyclicBarrier.getParties());
         log.info("------------------------------------");
 //        while (cyclicBarrier.getParties() > 0) {
 //
