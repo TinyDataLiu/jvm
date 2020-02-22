@@ -1,9 +1,9 @@
 package com.alice.concurrent.threadPool;
 
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.RandomStringUtils;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.concurrent.*;
 
 /**
  * @author liuchun
@@ -26,9 +26,11 @@ public class ThreadPoolDemo implements Runnable {
     static ExecutorService executorService = Executors.newFixedThreadPool(3);
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ExecutionException, InterruptedException {
         for (int i = 0; i < 100; i++) {
             executorService.execute(new ThreadPoolDemo());
+            Future<String> submit = executorService.submit((Callable<String>) () -> RandomStringUtils.random(10));
+             
         }
         executorService.shutdown();
     }
