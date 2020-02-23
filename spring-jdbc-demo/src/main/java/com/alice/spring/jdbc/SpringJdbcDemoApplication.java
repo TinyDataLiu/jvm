@@ -1,13 +1,13 @@
-package com.alice.concurrent;
+package com.alice.spring.jdbc;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Concurrent01Application {
+public class SpringJdbcDemoApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(Concurrent01Application.class, args);
+        SpringApplication.run(SpringJdbcDemoApplication.class, args);
     }
 
 }

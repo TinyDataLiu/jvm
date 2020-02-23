@@ -19,16 +19,16 @@ public class JUCDemo {
     private static Integer count1 = 0;
 
     public static void main(String[] args) throws IOException {
-        for (int i = 0; i < 5000; i++) {
-            new Thread(() -> {
-                count.incrementAndGet();
-            }).start();
-        }
-
-        synchronized (JUCDemo.class) {
-
-        }
-        System.in.read();
-        log.info("count={}", count.get());
+//        for (int i = 0; i < 5000; i++) {
+//            new Thread(() -> {
+//                count.incrementAndGet();
+//            }).start();
+//        }
+//
+//        synchronized (JUCDemo.class) {
+//
+//        }
+//        System.in.read();
+        log.info("count={}", 100_000_00);
     }
 }
