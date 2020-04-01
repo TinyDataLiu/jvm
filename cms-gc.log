@@ -1,0 +1,24 @@
+# 虚拟机信息
+Java HotSpot(TM) 64-Bit Server VM (25.161-b12) for windows-amd64 JRE (1.8.0_161-b12), built on Dec 19 2017 17:52:25 by "java_re" with MS VC++ 10.0 (VS2010)
+Memory: 4k page, physical 8067900k(2283852k free), swap 16456508k(8425844k free)
+# 配置信息
+CommandLine flags: -XX:-BytecodeVerificationLocal -XX:-BytecodeVerificationRemote -XX:InitialHeapSize=20971520 -XX:+ManagementServer -XX:MaxHeapSize=20971520 -XX:MaxNewSize=6991872 -XX:MaxTenuringThreshold=6 -XX:NewSize=6991872 -XX:OldPLABSize=16 -XX:OldSize=13979648 -XX:+PrintFlagsFinal -XX:+PrintGC -XX:+PrintGCDateStamps -XX:+PrintGCDetails -XX:+PrintGCTimeStamps -XX:TieredStopAtLevel=1 -XX:+UseCompressedClassPointers -XX:+UseCompressedOops -XX:+UseConcMarkSweepGC -XX:-UseLargePagesIndividualAllocation -XX:+UseParNewGC
+# Young 默认情况下使用 ParNew 收集器
+2019-12-23T10:30:51.820+0800: 0.728: [GC (Allocation Failure) 2019-12-23T10:30:51.820+0800: 0.728: [ParNew: 5504K->640K(6144K), 0.0047664 secs] 5504K->1335K(19840K), 0.0050377 secs] [Times: user=0.05 sys=0.00, real=0.01 secs]
+# 我们都知道 CMS GC 大致分为四个步骤
+# 1. 初始标记 2. 并发标记 3. 重新标记 4. 并发清除
+# 从下面的日志我们可以清晰的看大这四个流程
+# 初始标记 STW
+2019-12-23T10:30:53.914+0800: 2.822: [GC (CMS Initial Mark) [1 CMS-initial-mark: 6948K(13696K)] 7588K(19840K), 0.0007084 secs] [Times: user=0.00 sys=0.00, real=0.00 secs]
+# 并发标记 与用户线程并行
+2019-12-23T10:30:53.914+0800: 2.822: [CMS-concurrent-mark-start]
+2019-12-23T10:30:53.927+0800: 2.835: [CMS-concurrent-mark: 0.013/0.013 secs] [Times: user=0.05 sys=0.00, real=0.01 secs]
+2019-12-23T10:30:53.927+0800: 2.835: [CMS-concurrent-preclean-start]
+2019-12-23T10:30:53.927+0800: 2.835: [CMS-concurrent-preclean: 0.000/0.000 secs] [Times: user=0.00 sys=0.00, real=0.00 secs]
+# 重新标记，或者说最终标记
+2019-12-23T10:30:53.930+0800: 2.838: [GC (CMS Final Remark) [YG occupancy: 688 K (6144 K)]2019-12-23T10:30:53.930+0800: 2.838: [Rescan (parallel) , 0.0006255 secs]2019-12-23T10:30:53.931+0800: 2.838: [weak refs processing, 0.0004604 secs]2019-12-23T10:30:53.931+0800: 2.839: [class unloading, 0.0024754 secs]2019-12-23T10:30:53.934+0800: 2.841: [scrub symbol table, 0.0081427 secs]2019-12-23T10:30:53.942+0800: 2.850: [scrub string table, 0.0007946 secs][1 CMS-remark: 6948K(13696K)] 7637K(19840K), 0.0129256 secs] [Times: user=0.03 sys=0.02, real=0.01 secs]
+# 并发清除
+2019-12-23T10:30:53.946+0800: 2.854: [CMS-concurrent-sweep-start]
+2019-12-23T10:30:53.949+0800: 2.857: [CMS-concurrent-sweep: 0.003/0.003 secs] [Times: user=0.03 sys=0.00, real=0.00 secs]
+2019-12-23T10:30:53.949+0800: 2.857: [CMS-concurrent-reset-start]
+2019-12-23T10:30:53.949+0800: 2.857: [CMS-concurrent-reset: 0.000/0.000 secs] [Times: user=0.00 sys=0.00, real=0.00 secs]
